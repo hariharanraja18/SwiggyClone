@@ -1,0 +1,57 @@
+.header{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+}
+ul{
+    display: flex;
+}
+li{
+    margin: 10px;
+    padding-right: 20px;
+}
+.loginBtn{
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.ShimmerUI{
+    display: flex;
+    flex-wrap: wrap;
+}
+.dummyUI{
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 250px;
+    height: 285px;
+    margin: 10px;
+    background-color: rgb(247, 242, 242);
+}
+.RestaurantContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.rescard{
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 250px;
+    height: 285px;
+    margin: 10px;
+    background-color: rgb(247, 242, 242);
+
+}
+#ResImg{
+    width: 240px;
+    padding: 5px;
+    height: 150px;
+    border-radius: 10px;
+}
+.rescard > h3,p{
+    margin: 0px;
+    padding: 1px 5px;
+}
