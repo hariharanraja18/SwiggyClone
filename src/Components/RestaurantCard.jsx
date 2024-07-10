@@ -7,7 +7,6 @@ const RestaurantCard = (props) => {
 				id="ResImg"
 				src={CDN_LINK + props.resData.cloudinaryImageId}
 				alt="RestaurantImage"
-				srcset=""
 			/>
 
 			<h3>{props.resData.name}</h3>
