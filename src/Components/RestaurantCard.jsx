@@ -1,7 +1,6 @@
 import { CDN_LINK } from "../utility/constants";
 const RestaurantCard = (props) => {
 	// const { name, cloudinaryImageId,cuisines,avgRating } = props;
-	console.log(props);
 	return (
 		<div className="rescard">
 			<img

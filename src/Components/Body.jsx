@@ -51,6 +51,7 @@ const Body = () => {
 					</button>
 				</div>
 				<button
+					id="TopresBtn"
 					onClick={() => {
 						const filterLogic = listOfRestaurant.filter((res) => {
 							return res.info.avgRating > 4;
@@ -65,6 +66,7 @@ const Body = () => {
 					<RestaurantCard key={restaurant.info.id} resData={restaurant?.info} />
 				))}
 			</div>
+		
 		</div>
 	);
 };

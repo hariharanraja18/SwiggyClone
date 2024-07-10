@@ -16,9 +16,13 @@ const Header = () => {
 					<li>About Us</li>
 					<li>Contact Us</li>
 					<li>Cart</li>
-					<button className="loginBtn" onClick={()=>{
-						login? SetLogin(false):SetLogin(true);
-					}}>{login?"Login":"Logout"}</button>
+					<button
+						className="loginBtn"
+						onClick={() => {
+							login ? SetLogin(false) : SetLogin(true);
+						}}>
+						{login ? 'Login' : 'Logout'}
+					</button>
 				</ul>
 			</div>
 		</div>

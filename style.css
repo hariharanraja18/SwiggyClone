@@ -53,5 +53,10 @@ li{
 }
 .rescard > h3,p{
     margin: 0px;
-    padding: 1px 5px;
+    padding: 3px 5px;
+}
+#TopresBtn{
+    margin: 5px 0px;
+    padding: 5px;
+    border-radius: 10px;
 }
