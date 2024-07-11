@@ -2,7 +2,6 @@
     border: 1px solid black;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
 }
 .logo{
     width: 100px;
@@ -12,13 +11,15 @@ ul{
     display: flex;
 }
 li{
+    list-style: none;
+    font-size: larger;
     margin: 10px;
-    padding-right: 20px;
 }
 .loginBtn{
     margin-right: 10px;
     padding: 5px;
     border-radius: 10px;
+    font-size: larger;
 }
 .ShimmerUI{
     display: flex;
@@ -28,19 +29,20 @@ li{
     border-radius: 10px;
     border: 1px solid black;
     width: 250px;
-    height: 285px;
+    height: 325px;
     margin: 10px;
     background-color: rgb(247, 242, 242);
 }
 .RestaurantContainer{
     display: flex;
     flex-wrap: wrap;
+    
 }
 .rescard{
     border-radius: 10px;
     border: 1px solid black;
     width: 250px;
-    height: 285px;
+    height: 325px;
     margin: 10px;
     background-color: rgb(247, 242, 242);
 
@@ -48,15 +50,21 @@ li{
 #ResImg{
     width: 240px;
     padding: 5px;
-    height: 150px;
+    height: 170px;
     border-radius: 10px;
 }
 .rescard > h3,p{
     margin: 0px;
     padding: 3px 5px;
 }
-#TopresBtn{
+.TopresBtn,.search-box,.searchBtn {
     margin: 5px 0px;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 0px;
+}
+.filter-btn{
+    display: flex;
+}
+.TopresBtn{
+    margin-left: 10px;
 }
