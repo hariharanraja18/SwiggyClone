@@ -10,7 +10,7 @@
 ul{
     display: flex;
 }
-li{
+.nav-items > ul > li{
     list-style: none;
     font-size: larger;
     margin: 10px;
@@ -67,4 +67,9 @@ li{
 }
 .TopresBtn{
     margin-left: 10px;
+}
+.user-card{
+    margin: 0px;
+    padding: 10px;
+    border: 1px solid black;
 }
