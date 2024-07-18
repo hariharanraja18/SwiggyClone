@@ -1,13 +1,15 @@
-import RestaurantCard from './RestaurantCard';
+import RestaurantCard, { WithPromoted } from './RestaurantCard';
 import { useState, useEffect } from 'react';
 import RestaurantCard from './RestaurantCard';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
-import useOnlineStatus from '../utility/useOnlineStatus';
+import useOnlineStatus from '../utils/useOnlineStatus';
 const Body = () => {
 	const [listOfRestaurant, setListOfRestaurant] = useState([]);
 	const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 	const [searchText, setSearchText] = useState('');
+	const PromotedRestaurant = WithPromoted(RestaurantCard);
+	console.log(listOfRestaurant);
 	useEffect(() => {
 		fetchData();
 	}, []);
@@ -29,19 +31,19 @@ const Body = () => {
 		return listOfRestaurant.length === 0 ? (
 			<Shimmer />
 		) : (
-			<div className="container body">
-				<div className="filter-btn">
-					<div className="search">
+			<div className="m-1 p-1">
+				<div className="flex">
+					<div className="flex p-1 m-1 gap-1">
 						<input
 							type="text"
-							className="search-box"
+							className="border border-black"
 							value={searchText}
 							onChange={(e) => {
 								setSearchText(e.target.value);
 							}}
 						/>
 						<button
-							className="searchBtn"
+							className="border border-black bg-gray-200 p-1.5 rounded-lg hover:bg-gray-300"
 							onClick={() => {
 								// filter the Restaurant and update the UI.
 
@@ -54,10 +56,8 @@ const Body = () => {
 							}}>
 							Search
 						</button>
-					</div>
-					<div>
 						<button
-							className="TopresBtn"
+							className="border border-black bg-gray-200 p-1 ml-10 rounded-lg hover:bg-gray-300"
 							onClick={() => {
 								const filterLogic = listOfRestaurant.filter((res) => {
 									return res.info.avgRating > 4;
@@ -68,12 +68,17 @@ const Body = () => {
 						</button>
 					</div>
 				</div>
-				<div className="RestaurantContainer">
+
+				<div className="m-1 p-1 flex flex-wrap gap-5">
 					{filteredRestaurant.map((restaurant) => (
 						<Link
 							key={restaurant.info.id}
 							to={'/restaurants/' + restaurant.info.id}>
-							<RestaurantCard resData={restaurant?.info} />
+							{restaurant.info.isOpen ? (
+								<PromotedRestaurant resData={restaurant?.info} />
+							) : (
+								<RestaurantCard resData={restaurant?.info} />
+							)}
 						</Link>
 					))}
 				</div>

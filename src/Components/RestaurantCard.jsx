@@ -1,20 +1,30 @@
-import { CDN_LINK } from "../utility/constants";
+import { CDN_LINK } from '../utils/constants';
 const RestaurantCard = (props) => {
 	// const { name, cloudinaryImageId,cuisines,avgRating } = props;
 	return (
-		<div className="rescard">
+		<div className="bg-gray-200 rounded-lg p-1 m-1 w-[260px] h-[385px]">
 			<img
+				className="w-[250px] h-[225px] rounded-lg"
 				id="ResImg"
 				src={CDN_LINK + props.resData.cloudinaryImageId}
 				alt="RestaurantImage"
 			/>
-
-			<h3>{props.resData.name}</h3>
-			<p>{props.resData.cuisines.join(", ")}</p>
-			<p>{props.resData.avgRating} Stars</p>
-			<p>{props.resData.sla.slaString}</p>
+			<h3 className="font-bold p-1 m-1">{props.resData.name}</h3>
+			<p className="px-1 mx-1">{props.resData.cuisines.join(', ')}</p>
+			<p className="px-1 mx-1">{props.resData.avgRating} Stars</p>
+			<p className="px-1 mx-1">{props.resData.sla.slaString}</p>
 		</div>
 	);
 };
 export default RestaurantCard;
-// https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/
+
+export const WithPromoted = (RestaurantCard) => {
+	return (props) => {
+		return (
+			<div>
+				<label className='absolute bg-neutral-500 rounded-lg text-white p-2'>Open</label>
+				<RestaurantCard {...props} />
+			</div>
+		);
+	};
+};

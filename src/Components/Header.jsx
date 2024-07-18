@@ -1,40 +1,40 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import useOnlineStatus from "../utility/useOnlineStatus";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utils/useOnlineStatus';
+import { RES_LOGO } from '../utils/constants';
 
 const Header = () => {
-	const [login,SetLogin]=useState(true)
-	const OnlineStatus= useOnlineStatus();
+	const [login, SetLogin] = useState(true);
+	const OnlineStatus = useOnlineStatus();
 	return (
-		<div className="header">
+		<div className="flex justify-between p-1 mx-4 my-1 border border-black">
 			<div className="logo-container">
-				<img
-					className="logo"
-					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlb_uJqnEegXqkgFyGdqNxoEWu0g5Le0GETA&s"
-				/>
+				<img className="w-16 h-16" src={RES_LOGO} />
 			</div>
 			<div className="nav-items">
-				<ul className="hd">
-					<li>
-						Online Status: {OnlineStatus?"✅":"❌"}
+				<ul className="flex p-2 m-2">
+					<li className="px-4 py-2 mx-4">
+						Online Status: {OnlineStatus ? '✅' : '❌'}
 					</li>
-					<li>
+					<li className="px-4 py-2  mx-4">
 						<Link to={'/'}>Home</Link>
 					</li>
-					<li>
+					<li className="px-4 py-2  mx-4">
 						<Link to={'/About'}>About</Link>
 					</li>
-					<li>
+					<li className="px-4 py-2  mx-4">
 						<Link to={'/Contact'}>Contact</Link>
 					</li>
-					<li>Cart</li>
-					<button
-						className="loginBtn"
-						onClick={() => {
-							login ? SetLogin(false) : SetLogin(true);
-						}}>
-						{login ? 'Login' : 'Logout'}
-					</button>
+					<li className="px-4 py-2  mx-4">Cart</li>
+					<div>
+						<button
+							className="px-4 py-2 mx-4 border border-black rounded-lg bg-gray-200 hover:bg-gray-300"
+							onClick={() => {
+								login ? SetLogin(false) : SetLogin(true);
+							}}>
+							{login ? 'Login' : 'Logout'}
+						</button>
+					</div>
 				</ul>
 			</div>
 		</div>
