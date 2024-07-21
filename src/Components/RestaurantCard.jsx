@@ -1,6 +1,9 @@
+import { useContext } from 'react';
 import { CDN_LINK } from '../utils/constants';
+import UserContext from '../utils/UserContext';
 const RestaurantCard = (props) => {
 	// const { name, cloudinaryImageId,cuisines,avgRating } = props;
+	const {LoggedInUser}=useContext(UserContext)
 	return (
 		<div className="bg-gray-200 rounded-lg p-1 m-1 w-[260px] h-[385px]">
 			<img
@@ -13,6 +16,7 @@ const RestaurantCard = (props) => {
 			<p className="px-1 mx-1">{props.resData.cuisines.join(', ')}</p>
 			<p className="px-1 mx-1">{props.resData.avgRating} Stars</p>
 			<p className="px-1 mx-1">{props.resData.sla.slaString}</p>
+			<h1>{LoggedInUser}</h1>
 		</div>
 	);
 };

@@ -1,7 +1,7 @@
 import User from "./User";
 import UserClass from "./UserClass";
 import React from "react";
-
+import UserContext from "../utils/UserContext";
 class About extends React.Component{
 	constructor(){
 		console.log('Parent constructor called');
@@ -16,6 +16,9 @@ class About extends React.Component{
 		return (
 			<div>
 				<h1>About us</h1>
+				<UserContext.Consumer>
+					{({LoggedInUser})=> <h1>{LoggedInUser}</h1>}
+				</UserContext.Consumer>
 				<h2>This is Namaste React course</h2>
 				<h3>taught by akshay saini</h3>
 				<UserClass name="first" address="chennai" email="hari@gmail.com" />

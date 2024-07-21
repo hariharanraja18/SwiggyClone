@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './src/Components/Header';
 import Body from './src/Components/Body';
-import { createBrowserRouter, RouterProvider,  Outlet } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Contact from './src/Components/Contact';
 import About from './src/Components/About';
 import Error from './src/Components/Error';
 import RestaurantMenu from './src/Components/RestaurantMenu';
+import UserContext from './src/utils/UserContext';
+import appStore from './src/utils/appStore';
+import { Provider } from 'react-redux';
+import Cart from './src/Components/Cart';
 
 const AppLayout = () => {
+	const [userName, SetUserName] = useState(null);
+	useEffect(() => {
+		const data = {
+			name: 'hariharan',
+		};
+		SetUserName(data.name);
+	}, []);
 	return (
-		<div className="app">
-			<Header />
-			<Outlet />
-		</div>
+		<Provider store={appStore}>
+			<UserContext.Provider value={{ LoggedInUser: userName, SetUserName }}>
+				<div className="app">
+					<Header />
+					<Outlet />
+				</div>
+			</UserContext.Provider>
+		</Provider>
 	);
 };
 
@@ -23,8 +38,8 @@ const Router = createBrowserRouter([
 		element: <AppLayout />,
 		children: [
 			{
-				path:"/",
-				element: <Body/>
+				path: '/',
+				element: <Body />,
 			},
 			{
 				path: '/about',
@@ -35,9 +50,13 @@ const Router = createBrowserRouter([
 				element: <Contact />,
 			},
 			{
-				path:"/restaurants/:resId",
-				element:<RestaurantMenu/>
-			}
+				path: '/cart',
+				element: <Cart />,
+			},
+			{
+				path: '/restaurants/:resId',
+				element: <RestaurantMenu />,
+			},
 		],
 		errorElement: <Error />,
 	},

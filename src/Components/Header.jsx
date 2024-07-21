@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
 import { RES_LOGO } from '../utils/constants';
+import UserContext from '../utils/UserContext';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
 	const [login, SetLogin] = useState(true);
 	const OnlineStatus = useOnlineStatus();
+	const {LoggedInUser} = useContext(UserContext);
+	const cartItems = useSelector((store)=>store.cart.items)
+	console.log(cartItems)
 	return (
 		<div className="flex justify-between p-1 mx-4 my-1 border border-black">
 			<div className="logo-container">
@@ -25,7 +30,9 @@ const Header = () => {
 					<li className="px-4 py-2  mx-4">
 						<Link to={'/Contact'}>Contact</Link>
 					</li>
-					<li className="px-4 py-2  mx-4">Cart</li>
+					<li className="px-4 py-2 font-bold mx-4">
+						<Link to={'/cart'}>Cart - {cartItems.length}</Link>
+					</li>
 					<div>
 						<button
 							className="px-4 py-2 mx-4 border border-black rounded-lg bg-gray-200 hover:bg-gray-300"
@@ -35,6 +42,7 @@ const Header = () => {
 							{login ? 'Login' : 'Logout'}
 						</button>
 					</div>
+					<li className="px-4 py-2  mx-4 font-bold">{LoggedInUser}</li>
 				</ul>
 			</div>
 		</div>
