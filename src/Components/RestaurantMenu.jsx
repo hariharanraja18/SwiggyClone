@@ -15,7 +15,7 @@ const RestaurantMenu = () => {
 	// const { itemCards } =
 	// 	resMenuDet?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards[2].card.card;
 	const categories =
-		resMenuDet?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+		resMenuDet?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
 			(item) => {
 				return (
 					item?.card?.card?.['@type'] ===

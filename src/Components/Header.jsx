@@ -9,7 +9,7 @@ const Header = () => {
 	const [login, SetLogin] = useState(true);
 	const OnlineStatus = useOnlineStatus();
 	const {LoggedInUser} = useContext(UserContext);
-	const cartItems = useSelector((store)=>store.cart.items)
+	const cartItems = useSelector((store)=>store?.cart?.items)
 	return (
 		<div className="flex justify-between p-1 mx-4 my-1 border border-black">
 			<div className="logo-container">

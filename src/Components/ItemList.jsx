@@ -15,6 +15,7 @@ const ItemList = ({ items }) => {
 				return (
 					<div
 						key={item?.card?.info?.id}
+						data-testid= "itemList"
 						className="text-left my-2 py-2 border-b-2 h-auto flex border-gray-300">
 						<div className="w-9/12">
 							<h3 className="font-bold">{item?.card?.info?.name}</h3>
