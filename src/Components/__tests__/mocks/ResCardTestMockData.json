@@ -11,15 +11,15 @@
 	"avgRatingString": "4.3",
 	"totalRatingsString": "500+",
 	"sla": {
-		"deliveryTime": 43,
+		"deliveryTime": 47,
 		"lastMileTravel": 5,
 		"serviceability": "SERVICEABLE",
-		"slaString": "40-45 mins",
+		"slaString": "45-50 mins",
 		"lastMileTravelString": "5.0 km",
 		"iconType": "ICON_TYPE_EMPTY"
 	},
 	"availability": {
-		"nextCloseTime": "2024-07-22 22:00:00",
+		"nextCloseTime": "2024-07-23 22:00:00",
 		"opened": true
 	},
 	"badges": {},
@@ -34,7 +34,7 @@
 	},
 	"aggregatedDiscountInfoV3": {
 		"header": "ITEMS",
-		"subHeader": "AT ₹169"
+		"subHeader": "AT ₹149"
 	},
 	"orderabilityCommunication": {
 		"title": {},

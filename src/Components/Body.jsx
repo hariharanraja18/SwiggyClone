@@ -1,6 +1,5 @@
 import RestaurantCard, { WithPromoted } from './RestaurantCard';
 import { useState, useEffect, useContext } from 'react';
-import RestaurantCard from './RestaurantCard';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
@@ -11,7 +10,7 @@ const Body = () => {
 	const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 	const [searchText, setSearchText] = useState('');
 	const PromotedRestaurant = WithPromoted(RestaurantCard);
-	const {SetUserName,LoggedInUser}=useContext(UserContext);
+	const { SetUserName, LoggedInUser } = useContext(UserContext);
 	useEffect(() => {
 		fetchData();
 	}, []);
@@ -39,6 +38,7 @@ const Body = () => {
 						<input
 							type="text"
 							className="border border-black"
+							data-testid="input"
 							value={searchText}
 							onChange={(e) => {
 								setSearchText(e.target.value);
@@ -62,18 +62,23 @@ const Body = () => {
 							className="border border-black bg-gray-200 p-1 ml-10 rounded-lg hover:bg-gray-300"
 							onClick={() => {
 								const filterLogic = listOfRestaurant.filter((res) => {
-									return res.info.avgRating > 4;
+									return res.info.avgRating > 4.3;
 								});
 								setFilteredRestaurant(filterLogic);
 							}}>
 							Top Restaurants
 						</button>
-						<label >UserName:</label>
-						<input type="text" value={LoggedInUser} className='border border-black p-2' onChange={(e)=> SetUserName(e.target.value)} />
+						<label>UserName:</label>
+						<input
+							type="text"
+							value={LoggedInUser}
+							className="border border-black p-2"
+							onChange={(e) => SetUserName(e.target.value)}
+						/>
 					</div>
 				</div>
 
-				<div className="m-1 p-1 flex flex-wrap gap-5">
+				<div className="mx-auto my-1 w-10/12 p-1 flex flex-wrap gap-8 ">
 					{filteredRestaurant.map((restaurant) => (
 						<Link
 							key={restaurant.info.id}

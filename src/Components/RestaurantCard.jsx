@@ -2,11 +2,13 @@ import { useContext } from 'react';
 import { CDN_LINK } from '../utils/constants';
 import UserContext from '../utils/UserContext';
 const RestaurantCard = (props) => {
-	const {resData}=props;
+	const { resData } = props;
 	// const { name, cloudinaryImageId,cuisines,avgRating } = props;
-	const {LoggedInUser}=useContext(UserContext)
+	const { LoggedInUser } = useContext(UserContext);
 	return (
-		<div className="bg-gray-200 rounded-lg p-1 m-1 w-[260px] h-[385px]">
+		<div
+			data-testid="card"
+			className="bg-gray-200 rounded-lg p-1 m-1 w-[260px] h-[385px]">
 			<img
 				className="w-[250px] h-[225px] rounded-lg"
 				id="ResImg"
@@ -24,11 +26,12 @@ const RestaurantCard = (props) => {
 export default RestaurantCard;
 
 export const WithPromoted = (RestaurantCard) => {
-	
 	return (props) => {
 		return (
 			<div>
-				<label className='absolute bg-neutral-500 rounded-lg text-white p-2'>Open</label>
+				<label className="absolute bg-neutral-500 rounded-lg text-white p-2">
+					Open
+				</label>
 				<RestaurantCard {...props} />
 			</div>
 		);
