@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { CDN_LINK } from '../utils/constants';
 import UserContext from '../utils/UserContext';
 const RestaurantCard = (props) => {
+	const {resData}=props;
 	// const { name, cloudinaryImageId,cuisines,avgRating } = props;
 	const {LoggedInUser}=useContext(UserContext)
 	return (
@@ -9,13 +10,13 @@ const RestaurantCard = (props) => {
 			<img
 				className="w-[250px] h-[225px] rounded-lg"
 				id="ResImg"
-				src={CDN_LINK + props.resData.cloudinaryImageId}
+				src={CDN_LINK + props?.resData?.cloudinaryImageId}
 				alt="RestaurantImage"
 			/>
-			<h3 className="font-bold p-1 m-1">{props.resData.name}</h3>
-			<p className="px-1 mx-1">{props.resData.cuisines.join(', ')}</p>
-			<p className="px-1 mx-1">{props.resData.avgRating} Stars</p>
-			<p className="px-1 mx-1">{props.resData.sla.slaString}</p>
+			<h3 className="font-bold p-1 m-1">{resData?.name}</h3>
+			<p className="px-1 mx-1">{resData?.cuisines?.join(', ')}</p>
+			<p className="px-1 mx-1">{resData?.avgRating} Stars</p>
+			<p className="px-1 mx-1">{resData?.sla?.slaString}</p>
 			<h1>{LoggedInUser}</h1>
 		</div>
 	);
@@ -23,6 +24,7 @@ const RestaurantCard = (props) => {
 export default RestaurantCard;
 
 export const WithPromoted = (RestaurantCard) => {
+	
 	return (props) => {
 		return (
 			<div>
