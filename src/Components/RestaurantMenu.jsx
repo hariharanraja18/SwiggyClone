@@ -6,7 +6,7 @@ import { useState } from 'react';
 const RestaurantMenu = () => {
 	const { resId } = useParams();
 	const resMenuDet = useRestaurantMenu(resId);
-	const[showIndex,SetShowIndex]=useState(null)
+	const[showIndex,SetShowIndex]=useState(0)
 	if (resMenuDet === null) {
 		return <Shimmer />;
 	}

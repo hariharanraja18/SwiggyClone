@@ -20,6 +20,7 @@
 	},
 	"homepage": "https://github.com/hariharanraja18/SwiggyClone#readme",
 	"dependencies": {
+		"@fortawesome/fontawesome-free": "^6.6.0",
 		"@reduxjs/toolkit": "^2.2.6",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",

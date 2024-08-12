@@ -11,6 +11,8 @@ import UserContext from './src/utils/UserContext';
 import appStore from './src/utils/appStore';
 import { Provider } from 'react-redux';
 import Cart from './src/Components/Cart';
+import Footer from './src/Components/Footer';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const AppLayout = () => {
 	const [userName, SetUserName] = useState(null);
@@ -26,6 +28,7 @@ const AppLayout = () => {
 				<div className="app">
 					<Header />
 					<Outlet />
+					<Footer/>
 				</div>
 			</UserContext.Provider>
 		</Provider>

@@ -32,12 +32,12 @@ const Body = () => {
 		return listOfRestaurant.length === 0 ? (
 			<Shimmer />
 		) : (
-			<div className="m-1 p-1">
-				<div className="bg-blue-50 rounded-lg shadow-lg m-4 p-4">
-					<div className="flex flex-wrap p-2 m-2 gap-2">
+			<div className="m-1 p-1 w-full">
+				<div className="bg-blue-50 rounded-lg shadow-lg m-4 p-4 w-full">
+					<div className="flex flex-wrap p-2 m-2 gap-2 w-full">
 						<input
 							type="text"
-							className="border border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 w-full md:w-auto"
+							className="border border-gray-400 rounded-md p-2 focus:outline-none focus:border-blue-500 flex-grow md:flex-grow-0 md:w-1/2 lg:w-2/3 shadow-lg"
 							data-testid="input"
 							value={searchText}
 							onChange={(e) => {
