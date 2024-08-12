@@ -5,14 +5,14 @@ const RestaurantMenuData = ({ data, showItems, SetIndex }) => {
 		SetIndex();
 	};
 	return (
-		<div className="w-6/12 mx-auto my-4 border-b-2 border-gray-300 shadow-lg bg-gray-50 p-4">
+		<div className="w-full md:w-8/12 lg:w-6/12 mx-auto my-4 border-b-2 border-gray-300 shadow-md bg-white p-4 rounded-lg">
 			<div
-				className="flex justify-between cursor-pointer"
+				className="flex items-center justify-between cursor-pointer"
 				onClick={handleClick}>
-				<span className="font-bold">
+				<span className="font-bold text-gray-800 text-lg md:text-xl">
 					{data?.title} - ({data?.itemCards?.length})
 				</span>
-				<span>{'⬇️'}</span>
+				<span className="text-lg">{'⬇️'}</span>
 			</div>
 			{showItems && <ItemList items={data?.itemCards} />}
 		</div>

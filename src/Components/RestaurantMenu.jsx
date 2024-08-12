@@ -26,15 +26,24 @@ const RestaurantMenu = () => {
 			}
 		);
 	return (
-		<div className="text-center">
-			<div>
-				<h1 className="font-bold text-xl m-5">{name}</h1>
+		<div className="text-center my-2">
+			<div className="text-center my-2">
+				<h1 className="font-bold text-xl md:text-2xl text-gray-800 mb-4">
+					{name}
+				</h1>
 				<h4 className="font-bold m-2 p-2">
 					{cuisines.join(', ')} - {costForTwoMessage}
 				</h4>
 			</div>
-			{categories?.map((category,index) => {
-				return <RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card} showItems={index===showIndex?true:false} SetIndex={()=>SetShowIndex(index)}/>;
+			{categories?.map((category, index) => {
+				return (
+					<RestaurantCategory
+						key={category?.card?.card?.title}
+						data={category?.card?.card}
+						showItems={index === showIndex ? true : false}
+						SetIndex={() => SetShowIndex(index)}
+					/>
+				);
 			})}
 		</div>
 	);

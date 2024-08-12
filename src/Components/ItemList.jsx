@@ -15,11 +15,13 @@ const ItemList = ({ items }) => {
 				return (
 					<div
 						key={item?.card?.info?.id}
-						data-testid= "itemList"
-						className="text-left my-2 py-2 border-b-2 h-auto flex border-gray-300">
-						<div className="w-9/12">
-							<h3 className="font-bold">{item?.card?.info?.name}</h3>
-							<h4 className="font-semibold">
+						data-testid="itemList"
+						className="flex flex-col md:flex-row items-center p-4 my-4 border border-gray-300 rounded-lg shadow-sm">
+						<div className="w-full md:w-9/12">
+							<h3 className="font-bold text-lg text-gray-800">
+								{item?.card?.info?.name}
+							</h3>
+							<h4 className="font-bold text-lg text-gray-800">
 								₹
 								{item?.card?.info?.price
 									? item?.card?.info?.price / 100
@@ -28,8 +30,10 @@ const ItemList = ({ items }) => {
 							<p className="my-1 py-1">{item?.card?.info?.description}</p>
 						</div>
 						<div className="h-auto w-3/12 m-4">
-							<div className="absolute">
-								<button className="text-center border border-white text-white p-2 bg-black rounded-lg mx-16 my-32" onClick={()=>handleAddItem(item)}>
+							<div className="relative w-full md:w-3/12">
+								<button
+									className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 w-full md:w-auto"
+									onClick={() => handleAddItem(item)}>
 									Add
 								</button>
 							</div>

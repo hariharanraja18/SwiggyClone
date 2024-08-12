@@ -33,11 +33,11 @@ const Body = () => {
 			<Shimmer />
 		) : (
 			<div className="m-1 p-1">
-				<div className="flex">
-					<div className="flex p-1 m-1 gap-1">
+				<div className="bg-blue-50 rounded-lg shadow-lg m-4 p-4">
+					<div className="flex flex-wrap p-2 m-2 gap-2">
 						<input
 							type="text"
-							className="border border-black"
+							className="border border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 w-full md:w-auto"
 							data-testid="input"
 							value={searchText}
 							onChange={(e) => {
@@ -45,7 +45,7 @@ const Body = () => {
 							}}
 						/>
 						<button
-							className="border border-black bg-gray-200 p-1.5 rounded-lg hover:bg-gray-300"
+							className="border border-gray-300 bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 w-full md:w-auto"
 							onClick={() => {
 								// filter the Restaurant and update the UI.
 
@@ -59,7 +59,7 @@ const Body = () => {
 							Search
 						</button>
 						<button
-							className="border border-black bg-gray-200 p-1 ml-10 rounded-lg hover:bg-gray-300"
+							className="border border-gray-300 bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 w-full md:w-auto"
 							onClick={() => {
 								const filterLogic = listOfRestaurant.filter((res) => {
 									return res.info.avgRating > 4.3;
@@ -68,21 +68,22 @@ const Body = () => {
 							}}>
 							Top Restaurants
 						</button>
-						<label>UserName:</label>
+						{/* <label>UserName:</label>
 						<input
 							type="text"
 							value={LoggedInUser}
 							className="border border-black p-2"
 							onChange={(e) => SetUserName(e.target.value)}
-						/>
+						/> */}
 					</div>
 				</div>
 
-				<div className="mx-auto my-1 w-10/12 p-1 flex flex-wrap gap-8 ">
+				<div className="mx-auto my-4 p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 					{filteredRestaurant.map((restaurant) => (
 						<Link
 							key={restaurant.info.id}
-							to={'/restaurants/' + restaurant.info.id}>
+							to={'/restaurants/' + restaurant.info.id}
+							className="flex justify-center">
 							{restaurant.info.isOpen ? (
 								<PromotedRestaurant resData={restaurant?.info} />
 							) : (
