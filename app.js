@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './src/Components/Header';
 import Body from './src/Components/Body';
@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Contact from './src/Components/Contact';
 import About from './src/Components/About';
 import Error from './src/Components/Error';
-import RestaurantMenu from './src/Components/RestaurantMenu';
+// import RestaurantMenu from './src/Components/RestaurantMenu';
 import UserContext from './src/utils/UserContext';
 import appStore from './src/utils/appStore';
 import { Provider } from 'react-redux';
@@ -14,6 +14,7 @@ import Cart from './src/Components/Cart';
 import Footer from './src/Components/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+const RestaurantMenu = lazy(() => import('./src/Components/RestaurantMenu'));
 const AppLayout = () => {
 	const [userName, SetUserName] = useState(null);
 	useEffect(() => {
@@ -58,7 +59,12 @@ const Router = createBrowserRouter([
 			},
 			{
 				path: '/restaurants/:resId',
-				element: <RestaurantMenu />,
+
+				element: (
+					<Suspense fallback={<h1>Loading.....</h1>}>
+						<RestaurantMenu />
+					</Suspense>
+				),
 			},
 		],
 		errorElement: <Error />,
